@@ -1,13 +1,17 @@
 function alternatingSums(a) {
-  const evenNums = [];
-  const oddNums = [];
+  const sumMap = a.reduce(
+    (map, num, index) => {
+      if (index % 2 === 0) {
+        map['x'] += num;
+      } else {
+        map['y'] += num;
+      }
+      return map;
+    },
+    { x: 0, y: 0 }
+  );
 
-  a.forEach((num) => (num % 2 === 0 ? evenNums.push(num) : oddNums.push(num)));
-
-  const evenSums = evenNums.reduce((total, num) => total + num, 0);
-  const oddSums = oddNums.reduce((total, num) => total + num, 0);
-
-  return [evenSums, oddSums];
+  return Object.values(sumMap);
 }
 
 console.log(alternatingSums([50, 60, 60, 45, 70]));
