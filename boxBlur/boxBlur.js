@@ -1,7 +1,13 @@
 function boxBlur(image) {
   const pixelData = getPixelData(image);
+  const pixelValue = Math.floor(
+    pixelData.totalPixelValue / pixelData.totalPixels
+  );
+  const output = [[]];
 
-  console.log(pixelData);
+  output[0].push(pixelValue);
+
+  return output;
 }
 
 function getPixelData(image) {
