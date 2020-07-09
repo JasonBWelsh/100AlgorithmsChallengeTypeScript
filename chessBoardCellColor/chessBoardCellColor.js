@@ -1,4 +1,4 @@
-function getDarkCells() {
+function getCellGroups() {
   const xAxis = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
   const yAxis = [1, 2, 3, 4, 5, 6, 7, 8];
   const darkCells = [];
@@ -16,15 +16,20 @@ function getDarkCells() {
     }
     isDarkCellEven = !isDarkCellEven;
   });
-
   return [[...darkCells], [...lightCells]];
 }
 
-console.log(getDarkCells());
-
 function chessBoardCellColor(cell1, cell2) {
-  return 'wtf';
+  const cellGroups = getCellGroups();
+  const darkCells = cellGroups[0];
+  const lightCells = cellGroups[1];
+
+  return (
+    (darkCells.includes(cell1) && darkCells.includes(cell2)) ||
+    (lightCells.includes(cell1) && lightCells.includes(cell2))
+  );
 }
 
 console.log(chessBoardCellColor('A1', 'C3'));
+console.log(chessBoardCellColor('F3', 'E4'));
 console.log(chessBoardCellColor('A1', 'H3'));
