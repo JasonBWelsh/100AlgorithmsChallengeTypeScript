@@ -20,9 +20,7 @@ function getCellGroups() {
 }
 
 function chessBoardCellColor(cell1, cell2) {
-  const cellGroups = getCellGroups();
-  const darkCells = cellGroups[0];
-  const lightCells = cellGroups[1];
+  const [darkCells, lightCells] = getCellGroups();
 
   return (
     (darkCells.includes(cell1) && darkCells.includes(cell2)) ||
