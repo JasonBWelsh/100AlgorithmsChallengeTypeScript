@@ -15,6 +15,10 @@ function circleOfNumbers(n, firstNumber) {
     radialOpposite = numberSet[numberSet.indexOf(firstNumber) - linearDistance];
   }
 
+  if (radialOpposite === numberSet.indexOf(numberSet.length - 1)) {
+    radialOpposite = numberSet[0];
+  }
+
   return radialOpposite;
 }
 
